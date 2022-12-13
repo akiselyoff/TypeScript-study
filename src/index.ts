@@ -1,5 +1,6 @@
 class Vehicle {
   private static count: number = 0;
+  private options: string[] = [];
 
   constructor(
     private engineType: 'electro' | 'fuel',
@@ -25,6 +26,9 @@ class Vehicle {
   showColor() {
     console.log('Color: ' + this.color);
   }
+  addOption(option: string) {
+    this.options.push(option);
+  }
   speedTuning(speed: number) {
     this.speed = speed;
     console.log('Speed increased to: ' + this.speed);
@@ -32,6 +36,13 @@ class Vehicle {
   colorChange(color: string) {
     this.color = color;
     console.log('Color changed to: ' + this.color);
+  }
+  showStartOptions() {
+    this.showCount();
+    this.showEngineType();
+    this.showType();
+    this.showSpeed();
+    this.showColor();
   }
 }
 
@@ -66,13 +77,7 @@ class TuningVehicle extends Vehicle {
       ? console.log('Lightning +')
       : console.log('Lightning -');
   }
-  showStartOptions() {
-    super.showCount();
-    super.showEngineType();
-    super.showType();
-    super.showSpeed();
-    super.showColor();
-  }
+
   checkTuning() {
     this.checkSpoiler();
     this.checkNitro();
@@ -86,9 +91,8 @@ class TuningVehicle extends Vehicle {
     super.colorChange(color);
     console.log('Your car is full tuned');
   }
-
   showCharacteristics() {
-    this.showStartOptions();
+    super.showStartOptions();
     this.checkTuning();
   }
 }
