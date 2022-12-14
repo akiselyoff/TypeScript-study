@@ -1,4 +1,4 @@
-class Vehicle {
+abstract class Vehicle {
   private static count: number = 0;
   private options: string[] = [];
 
@@ -44,6 +44,7 @@ class Vehicle {
     this.showSpeed();
     this.showColor();
   }
+  abstract startEngine(): boolean;
 }
 
 class TuningVehicle extends Vehicle {
@@ -94,5 +95,9 @@ class TuningVehicle extends Vehicle {
   showCharacteristics() {
     super.showStartOptions();
     this.checkTuning();
+  }
+  startEngine() {
+    console.log('Engine was start!');
+    return true;
   }
 }

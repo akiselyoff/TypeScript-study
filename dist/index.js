@@ -90,5 +90,9 @@ class TuningVehicle extends Vehicle {
         super.showStartOptions();
         this.checkTuning();
     }
+    startEngine() {
+        console.log('Engine was start!');
+        return true;
+    }
 }
 //# sourceMappingURL=index.js.map
