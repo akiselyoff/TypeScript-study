@@ -101,3 +101,53 @@ class TuningVehicle extends Vehicle {
     return true;
   }
 }
+
+interface IPerson {
+  name: string;
+  age: number;
+}
+
+// type IPerson = {//type одно и тоже с interface
+//   name: string;
+//   age: number;
+// }
+
+const driver: IPerson = {
+  name: 'Joe',
+  age: 25,
+};
+
+interface IDriverLicense extends IPerson {
+  driverCategory: 'A' | 'B' | 'C' | 'D' | 'E';
+}
+
+class Driver implements IDriverLicense {
+  constructor(
+    public name: string,
+    public age: number,
+    public driverCategory: 'A' | 'B' | 'C' | 'D' | 'E'
+  ) {}
+
+  greet(phrase: string): void {
+    console.log(this.name + ' said: ' + phrase);
+  }
+}
+
+type AddFuncType = (n1: number, n2: number) => number;
+
+let add1: AddFuncType;
+
+add1 = (n1: number, n2: number) => {
+  return n1 + n2;
+};
+
+//type AddFunc = (n1: number, n2: number) => number;
+interface AddFuncInterface {
+  (n1: number, n2: number): number;
+}
+
+let add2: AddFuncInterface;
+
+add2 = (n1: number, n2: number) => {
+  return n1 + n2;
+};

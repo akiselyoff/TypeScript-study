@@ -95,4 +95,14 @@ class TuningVehicle extends Vehicle {
         return true;
     }
 }
+class Driver {
+    constructor(name, age, driverCategory) {
+        this.name = name;
+        this.age = age;
+        this.driverCategory = driverCategory;
+    }
+    greet(phrase) {
+        console.log(this.name + ' said: ' + phrase);
+    }
+}
 //# sourceMappingURL=index.js.map
