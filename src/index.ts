@@ -42,3 +42,22 @@ function showFields(obj: UnknownUser) {
 
 showFields({ name: 'Mary', age: 21 });
 showFields({ name: 'Nik', password: '12345' });
+
+//Type HTML
+
+const input = <HTMLInputElement>document.getElementById('first_name');
+input.value = 'Vika';
+console.log(input.value);
+
+const input2 = document.getElementById('last_name') as HTMLInputElement;
+input2.value = 'Boris';
+
+const input3 = document.getElementById('myCity');
+if (input3) {
+  (input3 as HTMLInputElement).value = 'Kyiv';
+}
+
+const input4 = document.getElementById('age');
+if (input4) {
+  (input4 as HTMLInputElement).value = 25;
+}
