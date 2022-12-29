@@ -31,12 +31,16 @@ function merge<T, U>(objA: T, objB: U) {
   return Object.assign({}, objA, objB);
 }
 
-class Component {
+class Component<T> {
   constructor(public props: T) {}
 }
 
-class Page extends Component {
-  pageInfo() {
+interface IPage {
+  title: string;
+}
+
+class Page extends Component<IPage> {
+  pageInfo(): void {
     console.log(this.props.title);
   }
 }
